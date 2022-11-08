@@ -15,7 +15,7 @@ public class App
         Person[] people = new Person[] {Aldo, Giovanni};
         Gson gson = new Gson();
 
-        PrintWriter writer = new PrintWriter("json.txt", "UTF-8");
+        PrintWriter writer = new PrintWriter("file.json", "UTF-8");
         writer.println(gson.toJson(people));
         writer.close();
         System.out.println(gson.toJson(people));
