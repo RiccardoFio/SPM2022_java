@@ -10,14 +10,21 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException, UnsupportedEncodingException {
         Person Aldo = new Person('1',"Aldo", "Camerino",22);
-        Person Giovanni = new Person('2',"Giovanni", "Jesi",50);
+        Person Giovanni = new Person('2',"Giovanni", "Cupramontana",50);
 
         Person[] people = new Person[] {Aldo, Giovanni};
-        Gson gson = new Gson();
+        createFileJson(JsonConverter(people), "file.json");
+    }
 
-        PrintWriter writer = new PrintWriter("file.json", "UTF-8");
-        writer.println(gson.toJson(people));
+    public static String JsonConverter(Person[] people){
+        Gson gson = new Gson();
+        return gson.toJson(people);
+    }
+
+    public static void createFileJson(String peopleJson, String fileName) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+        writer.println(peopleJson);
         writer.close();
-        System.out.println(gson.toJson(people));
+        System.out.println(peopleJson);
     }
 }

@@ -1,3 +1,5 @@
 .idea
 target
 file.json
+src/test/file_test.json
+chromedriver
