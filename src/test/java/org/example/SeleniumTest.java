@@ -27,12 +27,12 @@ public class SeleniumTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @Disabled
+    /*
     @BeforeAll
     public static void setup(){
         String projectPath=System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver",projectPath+"/chromedriver");
-    }
+    }*/
 
     @Test
     void checkProsSite() throws InterruptedException {
