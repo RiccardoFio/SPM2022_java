@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.Console;
 
 import static org.junit.jupiter.api.Assertions.*;
-@Disabled
+
 public class SeleniumTest {
     WebDriver driver=new ChromeDriver();
 
