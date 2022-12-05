@@ -1,25 +1,39 @@
 package org.example;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.Console;
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SeleniumTest {
     WebDriver driver=new ChromeDriver();
 
+    @BeforeEach
+    void setUp() throws Exception {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+
+    @Disabled
     @BeforeAll
     public static void setup(){
         String projectPath=System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver",projectPath+"/chromedriver");
     }
+
     @Test
     void checkProsSite() throws InterruptedException {
         driver.get("https://pros.unicam.it/");
